@@ -8,17 +8,12 @@
   import Subtitle from "./lib/Subtitle.svelte";
   import Ring from "./lib/Ring.svelte";
 
-  let fill = 0;
-
-  function randomFill() {
-    fill = Math.floor(Math.random() * 360);
-  }
-
-  $: setInterval(randomFill, 3000);
+  export let sync = "0";
+  $: fill = parseInt(sync) * 3.6;
 </script>
 
 <div class="wrapper">
-  <div class="a">
+  <div>
     <Icon />
   </div>
   <div>
@@ -31,7 +26,7 @@
     <Indicator />
   </div>
   <div class="ring-container">
-    <Ring {fill} color="#fff" />
+    <Ring {fill} color="orange" />
   </div>
 </div>
 

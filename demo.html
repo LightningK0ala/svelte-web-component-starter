@@ -3,11 +3,18 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <script type="module" src="/bundle.umd.js"></script>
+    <script>
+      setInterval(() => {
+        document
+          .querySelector("my-element")
+          .setAttribute("sync", Math.floor(Math.random() * 100));
+      }, 3000);
+    </script>
     <style>
       html {
         background-color: black;
       }
     </style>
   </head>
-  <my-element></my-element>
+  <my-element sync="0"></my-element>
 </html>
