@@ -6,6 +6,10 @@ Clone this repo, install dependencies `npm i` and run the project `npm run dev`.
 
 The output `dist/bundle.es.js` or `dist/bundle.um.js` files can be used depending on how you want to import it.
 
-## Limitations
+## Tailwind Limitations
 
-Apart from the documented svelte custom element (web component limitations), it's not possible to use tailwind classes inline with the element, eg. `<div class="bg-reg-500">`, instead, tailwind classes can be applied using `@apply` in `<style lang="postcss>`.
+Because of the way web components work, with the shadow dom isolating anything that's inside of the component from the outside (including styles), we can't rely on the typical tailwind built `style.css` file and simply import it in another project.
+
+This issue is discussed further here with some [proposed solutions](https://stackoverflow.com/questions/76764249/linking-css-file-with-svelte-component) but these solutions cause a flicker because the styling is loaded after the DOM is rendered.
+
+We recommend restricting yourself to using svelte scoped styles and using tailwind with `@apply`.

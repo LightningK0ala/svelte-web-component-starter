@@ -1,7 +1,7 @@
 import "./app.css";
-import App from "./App.svelte";
+import BlockClock from "./BlockClock.svelte";
 
-const app = new App({
+const app = new BlockClock({
   target: document.getElementById("app")!,
 });
 
